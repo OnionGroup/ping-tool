@@ -1,4 +1,10 @@
 {
 	"dailyRunTime": "19:20",
-	"hostnames": ["blabla001", "blabla002", "blabla003"]
+	"hosts": [{
+		"nickname": "blabla001",
+		"value": "127.0.0.1"
+	}, {
+		"nickname": "blabla002",
+		"value": "google.com"
+	}]
 }
