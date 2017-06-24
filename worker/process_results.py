@@ -13,6 +13,7 @@ header_font = Font(bold=True, size=20)
 cell_font = Font(size=16)
 centered = Alignment(horizontal="center")
 
+
 def process_results(nicknames, responses):
     export_to_excel(nicknames, responses)
 
@@ -21,11 +22,14 @@ def set_header(cell):
     cell.font = header_font
     cell.alignment = centered
 
+
 def set_success(cell):
     cell.font = Font(color="00FF00", size=16)
 
+
 def set_failure(cell):
     cell.font = Font(color="FF0000", size=16)
+
 
 def export_to_excel(nicknames, responses):
     wb = Workbook()
@@ -41,7 +45,6 @@ def export_to_excel(nicknames, responses):
             styled_cell = sheet[ascii_uppercase[i] + str(j)]
             styled_cell.font = cell_font
             styled_cell.alignment = centered
-
 
     for i in range(len(responses)):
         row = str(i + 2)

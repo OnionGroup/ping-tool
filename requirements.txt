@@ -1,2 +1,3 @@
 pyping
 multiprocessing
+openpyxl
