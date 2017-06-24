@@ -9,6 +9,9 @@
 	}, {
 		"nickname": "bad host",
 		"value": "something.com"
+	}, {
+		"nickname": "timeout host",
+		"value": "6.6.6.6"
 	}],
 	"maxTimeout": 1000,
 	"packetCount": 5

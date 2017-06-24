@@ -13,8 +13,11 @@ def print_to_console(nicknames, responses):
 
         if not isinstance(r, Response):
             print "an error occurred: {}\n".format(r)
-            return
+            continue
+
+        if r.ret_code != 0:
+            print "request timed out"
+            continue
 
         print "packet loss: {}".format(r.packet_lost)
-        print "Average ping time: {}ms, min: {}ms, max: {}ms".format(r.avg_rtt, r.min_rtt, r.max_rtt)
-        print "\n"
+        print "Average ping time: {}ms, min: {}ms, max: {}ms\n".format(r.avg_rtt, r.min_rtt, r.max_rtt)
