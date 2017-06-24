@@ -1,20 +1,24 @@
 from pyping.core import ping
+from multiprocessing import Pool
 from common.config_reader import read_config
 from process_results import process_results
 
 config = read_config("../configuration/config.json")
+hosts = config["hosts"]
 
-nicknames = []
-for obj in config["hosts"]:
-    nicknames.append((obj["nickname"], obj["value"]))
 
-responses = []
-
-for host in config["hosts"]:
+def ping_host(host):
     try:
         response = ping(host["value"], config["maxTimeout"], config["packetCount"])
-        responses.append(response)
+        return response
     except Exception as e:
-        responses.append(e.message)
+        return e.message
 
-process_results(nicknames, responses)
+
+if __name__ == '__main__':
+    nicknames = [(obj["nickname"], obj["value"]) for obj in hosts]
+
+    pool = Pool(min(len(hosts), 4))
+    responses = pool.map(ping_host, hosts)
+
+    process_results(nicknames, responses)
