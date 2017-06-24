@@ -6,5 +6,10 @@
 	}, {
 		"nickname": "blabla002",
 		"value": "google.com"
-	}]
+	}, {
+		"nickname": "bad host",
+		"value": "something.com"
+	}],
+	"maxTimeout": 1000,
+	"packetCount": 5
 }
